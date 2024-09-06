@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스 이름을 이용한 선택자</title>
+</head>
+<body>
+  <div>
+    <h1>클래스 이름을 이용한 선택</h1>
+    <ul>
+      <li class="item odd">첫번째 아이템이에요!</li>
+      <li class="item even">두번째 아이템이에요!</li>
+      <li class="item odd">세번째 아이템이에요!</li>
+      <li class="item even">네번째 아이템이에요!</li>
+      <li class="item odd">다섯번째 아이템이에요!</li>
+    </ul>
+  </div>
+</body>
+<script>
+  // 프로토타입
+  HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+  const items = document.getElementsByClassName("item");
+  const colors = {
+    odd : "yellow",
+    even : "pink"
+  }
+  // items.forEach((item) => {console.log(item)}) //리스트 보여줌
+  items.forEach((item) => {
+    console.log(item.classList[1] == "even" ? colors["even"] : colors["odd"]); 
+    // item.style.color = item.classList[1] == "even" ? colors["even"] : colors["odd"];
+    item.style.color = colors[item.classList[1]];
+  })
+
+
+</script>
+</html>

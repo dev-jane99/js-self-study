@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스 이름으로 선택하기 실습</title>
+</head>
+<body>
+  <div>
+    <h1>클래스 이름으로 선택하기 실습</h1>
+    <ul>
+      <li class="list">첫번째 리스트에요!</li>
+      <li class="list">두번째 리스트에요!</li>
+      <li class="list">세번째 리스트에요!</li>
+      <li class="list">네번째 리스트에요!</li>
+      <li class="list">다섯번째 리스트에요!</li>
+    </ul>
+  </div>
+</body>
+<!-- 
+자바스크립트로 list의 클래스 이름으로 선택하여 .list인 태그 폰트의 크기를 20px 로 변경하고
+ ul 태그의 style 중 display를 flex로 변경한다.
+ 단, 선택자는 list 만 불러온다.
+  -->
+ <script>
+  HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+  const lists = document.getElementsByClassName("list");
+  console.log(lists);
+  lists.forEach((li) => {
+    li.style.fontSize = "20px";
+    li.parentElement.style.display = "flex";
+  })
+  console.log(lists);
+ </script>
+
+
+</html>

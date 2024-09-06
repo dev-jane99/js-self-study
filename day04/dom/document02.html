@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>name을 이용한 선택</title>
+</head>
+<body>
+  <h1>name 속성을 이용한 선택</h1>
+  <form action="">
+    <div>
+      <span>아이디</span><input type="text" name="id" placeholder="아이디" value="wow00">
+    </div>
+    <div>
+      <span>비밀번호</span><input type="text" name="password" placeholder="비밀번호" value="1234">
+    </div>
+    <div>
+      <label>c언어<input type="checkbox" name="language" value="c"></label>
+    </div>
+    <div>
+      <label>파이썬<input type="checkbox" name="language" value="python"></label>
+    </div>
+    <div>
+      <label>자바<input type="checkbox" name="language" value="java" checked></label>
+    </div>
+  </form>
+</body>
+<script>
+  const id = document.getElementsByName("id")
+  const checkboxes = document.getElementsByName("language")
+  const passwords = document.getElementsByName()  console.log(id);
+  console.log(id[0].value); // wow00
+  console.log(id[0].setAttribute("value", "20")); //20
+  console.log(id[0].getAttribute("value")); //wow00
+
+  //checkbox 모두 가져오기
+checkboxes.forEach((input) => {console.log(input)});
+
+// 모두 checked 상태로 만들기
+checkboxes.forEach((input) => {
+  console.log(input.checked = "true");
+})
+console.log(checkboxes);
+
+
+
+</script>
+</html>

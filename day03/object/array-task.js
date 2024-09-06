@@ -16,8 +16,10 @@ console.log(input3.map(num => kor.charAt(num)).join(""));
 // console.log(input3.map(num => kor[num]).join("")); //도 가능
 
 // 4) 1~100까지 합 출력
-// const sum = new Array(100).
-// console.log(sum);
+let result = 0;
+const sum = new Array(100).fill(0)
+sum.map((data, i) => i + 1).forEach((data) => {result += data});
+console.log(result)
 
 
 // 5) 문자열 반대로 출력하기 .reverse() 사용
@@ -27,5 +29,15 @@ console.log(word.split("").reverse().join(""));
 // 6) 전화번호를 파라미터로 받아서 파싱(데이터를 바꿔주는 작업)하기
 // ex) 010-1234-5678
 // result) 010-****-5678
-const phoneNumber = "010-1234-5678"
-console.log(phoneNumber.replaceAll("1234", "****"));
+const phoneNumber = "010-1234-5678".split("-");
+phoneNumber[1] = "****";
+
+const parsePhoneNumber = phoneNumber.join("-");
+console.log(phoneNumber.join(""));
+
+// const phoneNumber = "010-1234-5678";
+// console.log(phoneNumber.replace("1234", "****"));
+
+const phoneNumber1 = "010-1234-5678".split("");
+phoneNumber1.splice(4,4,"*", "*","*","*")
+console.log(phoneNumber1.join(""));

@@ -117,7 +117,7 @@ console.log(arr10);
 // 값이 바뀌지 않는다. 
 // 반드시 리턴값이 있어야 한다.
 // arr10.filter(data => data % 3 == 0).forEach(data => console.log(data)); //3 의 배수인 친구들만 나옴
-arr10.filter(data => data % 3 == 0).forEach(console.log);
+// arr10.filter(data => data % 3 == 0).forEach(console.log);
 // 3개 고차함수중에 .forEach() 제일 마지막
 
 // .indexOf

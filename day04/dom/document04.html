@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 선택자를 이용한 선택</title>
+</head>
+<body>
+  <div>
+    <h1 id="title">CSS 선택자를 이용한 선택</h1>
+    <p class="sub-title">첫번째 단락이에요!</p>
+    <ul>
+      <li class="odd">코삼이 커피</li>
+      <li class="even">떡볶이</li>
+      <li class="odd">치킨</li>
+      <li class="even">삼겹살</li>
+      <li class="odd">피자</li>
+    </ul>
+  </div>
+</body>
+<script>
+  // li태그를 가져와서 content에 "치킨"이 포함되어있다면, 글자색을 빨간색으로 변경하기
+  const title = document.querySelector("#title");
+  const subTitle = document.querySelector(".sub-title");
+  const lists = document.querySelectorAll("li");
+  console.log(title);
+  console.log(subTitle);
+  console.log(lists);
+  console.log(lists[2].innerText);
+  NodeList.prototype.filter = Array.prototype.filter
+  lists.filter((list) => list.innerText.includes("치킨")).forEach((li) => {
+    li.style.color = "red";
+  })
+  //1) 홀수 odd 의 글자 크기는 22px, 짝수 글자 크기는 14px로 변경하기
+  const textodd = document.querySelectorAll(".odd");
+  const texteven = document.querySelectorAll(".even");
+  textodd.forEach((li) => {
+    console.log(li.style.fontSize = "22px");
+  })
+  texteven.forEach((li) => {
+    console.log(li.style.fontSize = "14px");
+  })
+  
+  console.log(textodd);
+  console.log(texteven);
+
+
+  // 선생님
+  const fontSizes = {
+    odd : "22px",
+    even : "14px"
+  }
+
+  lists.forEach((list) => {
+    list.style.fontSize = fontSizes[list.classList[0]]
+  })
+  // 2) 전체 목록 중 코삼이커피가 포함되어 있다면 코삼이커피를 진아리스트로 변경하기
+  lists.filter((list) => list.innerText.includes("코삼이 커피")).forEach((co3) => {co3.innerText = "진아리스트"});
+
+</script>
+</html>
