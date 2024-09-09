@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클릭이벤트 유효성검사</title>
+  <style>
+    input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label>
+      <input type="text" name="id" placeholder="아이디를 입력하세요.">
+      <p id="id-result"></p>
+    </label>
+    <label>
+      <input type="password" name="password" placeholder="비밀번호를 입력하세요.">
+      <p id="password-result"></p>
+    </label>
+    <button type="button">완료</button>
+  </form>
+</body>
+<script>
+  // 유효성 검사하기
+  // addEventListener
+  // 아이디와 비밀번호의 빈 값을 검사해서 모두 입력했을 때 검증 완료를 alert()으로 띄우기!
+  const button = document.querySelector("button[type=button]");
+  const id = document.querySelector("input[name=id]");
+  const password = document.querySelector("input[name=password]");
+  const idResult = document.querySelector("#id-result");
+  const passwordResult = document.querySelector("#password-result");
+  const form = document.querySelector("form")
+  //전역변수
+  globalThis.flag = new Array(false, false);
+
+  console.log(id);
+
+  id.addEventListener("focus", (e)=>{
+    const target = e.target
+    console.log(e);
+    id.style.border = "solid 2px pink";
+  })
+  
+  id.addEventListener("blur", (e) => {
+    const target = e.target
+    console.log(e);
+    if(!target.value){
+    idResult.innerText = "아이디를 입력하세요";
+    idResult.style.color = "red";
+    globalThis.flag[0] = false;
+    idResult.style.fontSize = "10px";
+    // target.focus();
+    return;
+  }
+    idResult.innerText = "사용가능한 아이디입니다";
+    idResult.style.color = "blue";
+    idResult.style.fontSize = "10px";
+    id.style.border = "solid 2px pink";
+    globalThis.flag[0] = true;
+  })
+
+
+  //password 로직 만들고 
+
+  password.addEventListener("focus", (e2)=>{
+    const target = e2.target
+    console.log(e2);
+    password.style.border = "solid 2px pink";
+  })
+
+  password.addEventListener("blur", (e2) => {
+    const target = e2.target;
+    console.log(e2)
+    if(!target.value){
+      passwordResult.innerText = "비밀번호를 입력하세요";
+      passwordResult.style.color = "red";
+      globalThis.flag[1] = false;
+      passwordResult.style.fontSize = "10px";
+      // target.focus();
+      return;
+    }
+    passwordResult.innerText = "사용가능한 비밀번호입니다";
+    passwordResult.style.color = "blue";
+    passwordResult.style.fontSize = "10px";
+    password.style.border = "solid 2px pink";
+    globalThis.flag[1] = true;
+  })
+  // button 눌렀을때 id 와 password 가 모두 있다면 전송시키기
+  //2 != 2
+  button.addEventListener("click", () => {   
+    if(globalThis.flag.filter((check) => check).length != globalThis.flag.length){
+      alert("다시 입력 해주세요")
+      return;
+    }
+    form.submit();
+    alert("회원가입이 완료되었습니다")
+  })
+
+</script>
+</html>

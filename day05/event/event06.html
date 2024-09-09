@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input value list 로 가져오기</title>
+</head>
+<body>
+  <input type="text" value="흰둥이">
+  <input type="text" value="두부">
+  <input type="text" value="푸딩이">
+  <ul id="result"></ul>
+  <button>동물버튼</button>
+</body>
+<script>
+    // 동물 버튼을 눌렀을 때!
+  // input의 value만 가져와서
+  // ul태그 안에 li로 3개 value를 화면 뿌리기
+  // 단 li태그는 js로 만든다. event05 참조!
+  // 실습 15분
+  NodeList.prototype.map = Array.prototype.map;
+  const inputs = document.querySelectorAll("input");
+  const values = inputs.map((input) => input.value);
+  const ul = document.querySelector("ul");
+  const button = document.querySelector("button")
+
+  button.addEventListener("click", () => {
+    values.forEach((value) => {
+    // ul.innerHTML += `<li>${value}</li>`
+    const li = document.createElement("li");
+    li.innerText = value;
+    ul.appendChild(li);
+  })
+  })
+
+
+  
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" name="animal" placeholder="동물의 이름을 입력하세요">
+    <p id="result"></p>
+  </div>
+</body>
+<script>
+  // 사용자가 동물이름을 입력하고 엔터를 치면
+  // 사용자가 입력한 동물의 버튼을 만든다. 
+  NodeList.prototype.map = Array.prototype.map;
+  const input = document.querySelector("input")
+  const p = document.querySelector("#result")
+  console.log(input)
+
+
+    input.addEventListener("keyup", (e) => {
+    if(e.key === 'Enter'){
+      p.innerHTML += `<button>${e.target.value}</button>`
+      console.log(e.target.value)
+    }
+  })
+
+</script>
+</html>
