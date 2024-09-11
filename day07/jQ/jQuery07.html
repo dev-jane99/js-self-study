@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 이벤트</title>
+</head>
+<body>
+  <ul>
+    <li>c언어</li>
+    <li>자바</li>
+    <li>자바스크립트</li>
+    <li>파이썬</li>
+    <li>JSP</li>
+    <li>PHP</li>
+  </ul>
+  <button>버튼</button>
+</body>
+<script src="./jQuery.js"></script>
+<script>
+  const $button = $("button");
+  const $ul = $("ul");
+  $button.on("click", () => {
+    // if($ul.css("display") === "none"){
+    //   $ul.slideDown();
+    // //   $ul.fadeIn();
+    // //   // $("ul").show();
+    // }else{
+    //   $ul.slideUp();
+    // //   $ul.fadeOut();
+    // //   // $("ul").hide();
+    // }
+    // $ul.toggle();
+    // $ul.fadeToggle(3000);
+    $ul.slideToggle(3000);
+    
+
+  })
+</script>
+</html>

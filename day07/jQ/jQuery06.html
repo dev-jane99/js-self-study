@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비밀번호 폼 변경</title>
+  <style>
+    input{
+      outline:none;
+      border:none;
+    }
+
+    .password{
+      border: solid 1px #333;
+      width: 200px;
+      display: flex;
+    }
+
+    .password input{
+      width: 100%;
+    }
+
+    .mark{
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background-image: url(./images/invisible.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form>
+  <div class="password">
+    <input name="password" type="password"><div class="mark"></div>
+  </div>
+  <button type="button">전송</button>
+  </form>
+</body>
+<script src="./jQuery.js"></script>
+<script>
+  const $input = $("input[name='password']");
+  $("div.mark").on("click", (e) => {
+    // const check = $input.prop("type")
+    const check = $input.attr("type") === "password";
+    $input.attr("type", check ? "text" : "password");
+    $(e.target).css("background-image", `url(${check ? "./images/visible.png" : "./images/invisible.png"})`)
+  })
+</script>
+</html>

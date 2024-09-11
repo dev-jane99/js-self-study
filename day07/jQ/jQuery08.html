@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 최종실습</title>
+  <style>
+    #price-menu{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #one{
+      background-color:lemonchiffon;
+    }
+
+    .box{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .name{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .customer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 1px black;
+      border-style: double;
+      width: 70px;
+      height: 30px;
+    }
+
+    .price{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 1px black;
+      width: 70px;
+      height: 30px;
+    }
+
+    .type-box{
+      margin: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="price-menu">
+    <p class="name">요금표</p>
+    <div class="box">
+      <div class="customer-type">
+        <div class="customer" id="one">구분</div>
+        <div class="customer">아동</div>
+        <div class="customer">청소년</div>
+        <div class="customer">성인</div>
+      </div>
+      <div class="price-type">
+        <div class="price" id="one">요금</div>
+        <div class="price">무료</div>
+        <div class="price">2000</div>
+        <div class="price">5000</div>
+      </div>
+    </div>
+    <input class="type-box" type="text">
+    <button class="button">확인</button>
+  </div>
+</body>
+<script src="./jQuery.js"></script>
+<script>
+  // 이미지와 동일하게 최종실습
+</script>
+</html>

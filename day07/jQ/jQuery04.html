@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 기초4</title>
+</head>
+<body>
+  <input type="text" name="name" placeholder="이름을 입력하세요" autocomplete="none">
+  <p id="name"></p>
+</body>
+<script src="./jQuery.js"></script>
+<script>
+  $("input[name='name']").on("change", (e) => {
+    $("#name").text(e.target.value)
+  })
+</script>
+</html>

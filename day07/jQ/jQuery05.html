@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery 실습</title>
+</head>
+<body>
+  <div>
+    <lable><input type="checkbox" value="선택1">선택1</lable>
+    <lable><input type="checkbox" value="선택2">선택2</lable>
+    <lable><input type="checkbox" value="선택3">선택3</lable>
+  </div>
+  <p id="result"></p>
+</body>
+<script src="./jQuery.js"></script>
+<script>
+    // 체크박스 선택 시 해당 내용을 p태그에 이어붙이기
+  // 선택 해제 시 해당 내용을 제거
+  // append()
+  // remove()
+  // on()
+  // filter()
+  const $checkboxes = $("input[type='checkbox']");
+  const $result = $("#result")
+$checkboxes.on("click", (e) => {
+  if(e.target.checked){
+    $result.append(`<strong>${e.target.value}</strong>`)
+  }else{
+    const $strong = $("#result strong");
+    $strong.filter((i, strong) => $(strong).text() === e.target.value).remove();
+    // $strong.filter((i, strong) => strong.innerText.match(e.target.value)).remove();
+})
+</script>
+</html>
