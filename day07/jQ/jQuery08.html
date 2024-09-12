@@ -5,77 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>jQuery 최종실습</title>
   <style>
-    #price-menu{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    #one{
-      background-color:lemonchiffon;
-    }
+    body {
+  /* font-family: ; */
+  font-weight: bold;
+}
 
-    .box{
-      display: flex;
-      flex-direction: row;
-    }
+table {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
 
-    .name{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+thead {
+  background-color: lemonchiffon;
+}
 
-    .customer{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: solid 1px black;
-      border-style: double;
-      width: 70px;
-      height: 30px;
-    }
-
-    .price{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: solid 1px black;
-      width: 70px;
-      height: 30px;
-    }
-
-    .type-box{
-      margin: 10px;
-    }
-
+fieldset {
+  text-align: center;
+  margin: 0 auto;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
   </style>
 </head>
 <body>
-  <div id="price-menu">
-    <p class="name">요금표</p>
-    <div class="box">
-      <div class="customer-type">
-        <div class="customer" id="one">구분</div>
-        <div class="customer">아동</div>
-        <div class="customer">청소년</div>
-        <div class="customer">성인</div>
-      </div>
-      <div class="price-type">
-        <div class="price" id="one">요금</div>
-        <div class="price">무료</div>
-        <div class="price">2000</div>
-        <div class="price">5000</div>
-      </div>
-    </div>
-    <input class="type-box" type="text">
-    <button class="button">확인</button>
-  </div>
+  <table border="1">
+    <caption>요금표</caption>
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th>요금</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>아동</td>
+        <td>무료</td>
+      </tr>
+      <tr>
+        <td>청소년</td>
+        <td>2000</td>
+      </tr>
+      <tr>
+        <td>성인</td>
+        <td>5000</td>
+      </tr>
+    </tbody>
+  </table>
+  <fieldset>
+    <legend>구분</legend>
+    <input type="text" id="input">
+    <input type="button" value="확인" onclick="confirm()">
+  </fieldset>
 </body>
 <script src="./jQuery.js"></script>
 <script>
   // 이미지와 동일하게 최종실습
+
+  globalThis.$temp;
+
+function confirm(){
+  let flag = false;
+  const $input = $("#input");
+  const $tds = $("tbody tr td:first-child");
+
+  if(globalThis.$temp){
+    globalThis.$temp.closest("tr").css("background-color", "white");
+    globalThis.$temp.text(globalThis.$temp.text().replaceAll("★", ""));
+  }
+
+  $tds.each((i, td) => {
+    const $td = $(td);
+    if($(td).text() === $input.val()){
+      flag = true;
+      $(td).text("★" + $(td).text());
+      globalThis.$temp = $td;
+      $td.closest("tr").css("background-color", "red");
+    }
+  })
+
+  if(!flag){
+    alert("다시 입력하세요!")
+  }
+
+  $input.val("");
+}
+
+
 </script>
 </html>
